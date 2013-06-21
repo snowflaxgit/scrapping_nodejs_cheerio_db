@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+  </head>
+  <body>
+  
+	  <div class="container">
+	  
+		<div class="row navbar-link">
+			<h3><%= title %></h3>
+		</div>
+		
+		<div class="row">
+			<ul>
+				<% items.forEach(function(item){ //console.log(item);%>
+					<li class="nav-tabs"><a href="news_tabs?keyword=<%= item.keyword %>&href=<%= item.tabs_href %>"><%= item.tabs_title %></a></li>
+				<%})%>
+			</ul>
+		</div>
+		
+	  </div>
+  </body>
+</html>
