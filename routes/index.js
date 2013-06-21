@@ -460,7 +460,7 @@ var getHeadlinesDetails = function(arr){
 	myLoop();
 };
 			
-//getData();		
+getData();		
 setInterval(getData,(hours*60*60*1000));
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Populate database with sample data -- Only used once: the first time the application is started.
