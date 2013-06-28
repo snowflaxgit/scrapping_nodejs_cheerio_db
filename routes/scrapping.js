@@ -446,7 +446,7 @@ function NewsPaper(){
 	// check for when call ScrapeTabs() 
 	setInterval(function(){
 		console.log("NewsPaper is running. newsFlags : "+newsFlags.length+" keyword.length: "+keyword.length);
-		if(keyword.length == newsFlags.length){
+		if(newsFlags.length == keyword.length || newsFlags.length > keyword.length){
 			ScrapeTabs();
 			
 			newsFlags = [];
@@ -863,7 +863,7 @@ function ScrapeTabs(){
 	// check for when call ScrapeHeadlines() 
 	setInterval(function(){
 		console.log("ScrapeTabs is running..keyTabs.length  : "+keyTabs.length +" keyword.length  :"+ keyword.length);
-		if(keyword.length == keyTabs.length){
+		if(keyTabs.length == keyword.length || keyTabs.length > keyword.length){
 			//console.log(arrTabs);			
 			ScrapeHeadlines(arrTabs);
 			
@@ -1352,7 +1352,7 @@ function ScrapeHeadlines(arrTabs){
 	// check for when call ScrapeHeadlinesDetails() 
 	setInterval(function(){
 		console.log("ScrapeHeadlines is running. arrTabs.length : "+arrTabs.length +" keyHeadlines.length : "+keyHeadlines.length);
-		if(arrTabs.length == keyHeadlines.length){
+		if(keyHeadlines.length == arrTabs.length || keyHeadlines.length > arrTabs.length){
 			//console.log(arrHeadlines);
 			ScrapeHeadlinesDetails(arrHeadlines);
 			
