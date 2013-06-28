@@ -9,7 +9,7 @@ var request = require('request')
 var mongo = require('mongodb');
  
 //create database server
-var Server = mongo.Server,
+/*var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
  
@@ -18,7 +18,7 @@ var server = new Server('localhost', 27017, {auto_reconnect: true});
 
 // create cartdb Database
 db = new Db('Newshunt', server);
-var db_name = ['sandesh', 'gujaratsamachar'];
+var db_name = ['language', 'newspaper', 'scrape'];
 
 // set intervaal
 var hours = 2,
@@ -35,7 +35,7 @@ db.open(function(err, db) {
 					populateDB();
 				}
 				else{
-					//populateDB();
+					populateDB();
 					//console.log("The '"+db_name[i]+"' is exist.. "+collection);					
 					collection.find().toArray(function(err, items) {
 						 if(items.length == 0){
@@ -50,7 +50,7 @@ db.open(function(err, db) {
 			});
 		}
     }
-});
+});*/
 
 /*
  * GET home page.
@@ -460,20 +460,37 @@ var getHeadlinesDetails = function(arr){
 	myLoop();
 };
 			
-getData();		
-setInterval(getData,(hours*60*60*1000));
+//getData();		
+//setInterval(getData,(hours*60*60*1000));
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Populate database with sample data -- Only used once: the first time the application is started.
 // You'd typically not find this code in a real-life app, since the database would already exist.
 var populateDB = function() {
  
-    var sandesh = [];
+    /*var sandesh = [];
     var gujaratsamachar = [];
-    var indiatimes = [];
+    var indiatimes = [];*/	
+	var language = [
+		{
+			language_name : "English",
+			language_status : "Active"
+		},
+		{
+			language_name : "Hindi",
+			language_status : "Active"
+		},
+		{
+			language_name : "Gujarati",
+			language_status : "Active"
+		}
+	];
+    var newspaper = [];
+    var scrape = [];
  	
 	for(var i=0;i<db_name.length;i++){
 		db.collection(db_name[i], function(err, collection) {		
-			collection.remove(); //remove database        
+			collection.remove(); //remove database      
 			collection.insert(db_name[i], {safe:true}, function(err, result) {
 				if(err){
 					console.log(err);

@@ -4,6 +4,8 @@
  */
 
 var express = require('express')
+  , db_manager = require('./routes/db_manager')
+  , scrapping = require('./routes/scrapping')
   , routes = require('./routes')
   , page_tabs = require('./routes/headlines')
   , headlines_details = require('./routes/headlines_details')
@@ -17,7 +19,7 @@ var express = require('express')
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3890);
+app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());

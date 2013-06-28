@@ -15,20 +15,25 @@
 		<div class="row">
 			<% items.forEach(function(item){ //console.log(item);%>
 				
-				 <label class="nav-tabs"><h4><%= item.headlines_title %></h4></label>
+				 <label class="nav-tabs"><h4><%= item.scrape_title %></h4></label>
 				 
 				 <div style="text-align:center">
-					<img src="<%= item.headlines_img %>" />
+				 	<% if(item.scrape_largeimage){ %> 
+						<img src="<%= item.scrape_largeimage %>" />
+					<% } %>
 				 </div>
 				<br/>
 				 <div class="tab-content">
-				 	<div class="date"><% if(item.date){%><%=item.date%> <%} %></div>
-					<p  style="text-align: justify;"> <%= item.headlines_content %> </p>
+				 	<div class="date"><% if(item.scrape_newstime){%><%=item.scrape_newstime%> <%} %></div>
+					<p  style="text-align: justify;"> <%= item.scrape_detail_article_text %> </p>
 				 </div> 
 			<%})%>
 		</div>
 
 	</div>
+	
+	<script src="/javascripts/jquery-1.9.1.js"></script>
+	<!--<script src="/javascripts/main.js"></script>-->
 	
   </body>
 </html>

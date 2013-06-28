@@ -13,13 +13,34 @@
 		</div>
 		
 		<div class="row">
-			<ul>
-				<% items.forEach(function(item){ //console.log(item);%>
-					<li class="nav-tabs"><a href="news_tabs?keyword=<%= item.keyword %>&href=<%= item.tabs_href %>"><%= item.tabs_title %></a></li>
+		
+			<div id="item" style="display:none;">
+				<% items.forEach(function(item){ %>
+					<%=	item.newspaperID %>	
+					<%=	item.languageID %>
+					<%=	item.scrape_tabs_title %>	
+					<%=	item.scrape_tabs_href %>
+					<%=	item.scrape_thumb %>
+					<%=	item.scrape_href %>	
+					<%=	item.scrape_title %>
+					<%=	item.scrape_largeimage %>
+					<%=	item.scrape_detail_article_text %>
+					<%=	item.scrape_systemTime %>
+					<%=	item.scrape_newstime %>
+					<%=	item.scrape_status %>
+				<%})%>
+			</div>
+			
+			<ul>				
+				<% items.forEach(function(item){ %>
+					<li class="nav-tabs"><a href="news_tabs?keyword=<%= item.keyword %>&href=<%= item.scrape_tabs_href %>"><%= item.scrape_tabs_title %></a></li>
 				<%})%>
 			</ul>
 		</div>
 		
 	  </div>
+	
+	  <script src="/javascripts/jquery-1.9.1.js"></script>
+	<script src="/javascripts/main.js"></script>
   </body>
 </html>
